@@ -110,6 +110,8 @@ public class ConsumerProcess implements Runnable {
                 case COMMIT:
                     consumer.commit(signal.getPayload());
                     break;
+                default:
+                    break;
             }
             signalTimesheet.put(signal.getType(), clock.millis());
         } catch (Exception ex) {
