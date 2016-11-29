@@ -144,11 +144,11 @@ public class StorageConfiguration {
     }
 
     @PostConstruct
-    public void ensureInitPathExists(AdminTool adminTool) throws Exception {
+    public void ensureInitPathExists() throws Exception {
         if (storageZookeeper().checkExists().forPath(zookeeperPaths().groupsPath()) == null) {
             storageZookeeper().create().creatingParentsIfNeeded().forPath(zookeeperPaths().groupsPath());
         }
-        adminTool.start();
+        adminTool().start();
     }
 
 }
